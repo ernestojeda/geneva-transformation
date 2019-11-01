@@ -12,17 +12,17 @@
 * What is a Jenkinsfile? (James)
 * Difference/benefits between JJB freestyle and Jenkins pipeline (Ernesto)
   * Job types:
-    * Verify Job - What it do?
-    * Merge Job - What it do?
-    * Stage Job - What it do?
+      * Verify Job - What it do?
+      * Merge Job - What it do?
+      * Stage Job - What it do?
   * Plugins:
-    * Before: GHPRB, trigger phrase (recheck)
-    * After: GitHub Branch Source, automatic scanning of repo, automatic builds via webhooks, untrusted builds would be triggered manually.
+      * Before: GHPRB, trigger phrase (recheck)
+      * After: GitHub Branch Source, automatic scanning of repo, automatic builds via webhooks, untrusted builds would be triggered manually.
   * What changes with Jenkins pipeline?
-    * What happens the ci-management JJB template?
-    * Easily debug where job fails
-    * Job simplification, only one job per branch/PR
-    * ...
+      * What happens the ci-management JJB template?
+      * Easily debug where job fails
+      * Job simplification, only one job per branch/PR
+      * ...
 * How Pipeline Simplifies the release management process (Lisa)
 * git-semver (Lisa)
   * what is git-semver?
@@ -35,9 +35,9 @@
 * git-semver manages versions wherever possible.
 * Repository must contain a Makefile
 * Standard Makefile targets:
-  * test: Run unit tests
-  * build: Compile code
-  * version: `cat VERSION 2>/dev/null || echo 0.0.0`. In this case the VERSION file is only used in the Jenkins pipeline and git-semver automatically writes the file to the workspace. When running locally a developer's version would be 0.0.0. This could be overridden by the developer if they so care to do so.
+  * **test**: Run unit tests
+  * **build**: Compile code
+  * **version**: `cat VERSION 2>/dev/null || echo 0.0.0`. In this case the VERSION file is only used in the Jenkins pipeline and git-semver automatically writes the file to the workspace. When running locally a developer's version would be 0.0.0. This could be overridden by the developer if they so care to do so.
 
 ## Docker as the build runtime (Ernesto)
 
@@ -98,15 +98,19 @@ ENTRYPOINT ["/go-binary"]
 
 ## New Pre-Built Jenkins Pipelines (Ernesto)
 
-* edgeXBuildGoApp: New pipeline that will be used for Go microservices
+* **edgeXBuildGoApp**: New pipeline that will be used for Go microservices
   * pipeline image here
 
-* edgeXBuildDocker: A generic pipeline that builds and scans docker images.
+* **edgeXBuildDocker**: A generic pipeline that builds and scans docker images.
   * pipeline image here
 
-* edgeXGeneric: Easily convert existing JJB templates to pipelines
+* **edgeXGeneric**: Easily convert existing JJB templates to pipelines
   * pipeline image here
 
 * Before & After Pipelines
   * Before Jenkinsfile
+      * [app-service-configurable](samples/app-service-configurable/Jenkinsfile.before)
+      * [device-bacnet-c](samples/device-bacnet-c/Jenkinsfile.before)
   * Show after Jenkinsfile
+      * [app-service-configurable](samples/app-service-configurable/Jenkinsfile.after)
+      * [device-bacnet-c](samples/device-bacnet-c/Jenkinsfile.after)
