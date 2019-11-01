@@ -5,7 +5,7 @@
 * Ernesto Ojeda
 * Lisa Rashidi-Ranjbar
 * James Gregg
-* Emilo Reyes
+* Emilio Reyes
 
 ## Background
 
