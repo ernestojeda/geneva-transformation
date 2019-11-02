@@ -51,14 +51,43 @@
 * A: No, just pushing your branch will trigger the build. If you require a new build and the code has not changed, you can push and empty commit.
 
 
-## How Pipeline Simplifies the release management process
-Summary...
+## git-semver
 
-* git-semver (Lisa)
-  * what is git-semver?
-  * how does it work?
-  * What happens to the `VERSION` file? Delete and add to .gitignore
+### What is git-semver?
 
+A command line tool that tracks semantic versioning for a git repository.
+
+### How does it work?
+
+Git-semver uses a detached branch in the git repository called `semver` to track the semantic versioning for the repository. In this `semver` branch git-semver will create files that match the name of the branch to track the **next** version for the branch.
+
+In this screenshot you can see that git-semver is tracking different versions for two branches: `master` and `edinburgh`:
+
+![gitsemver_semverBranch.png](images/gitsemver_semverBranch.png)
+
+By using a detached branch we are able to keep commits related to the versioning out of the main commit stream. 
+
+## How Pipeline and git-semver Simplify the Release Management Process 
+
+### Nexus Image Tracking
+
+For the repositories that have git-semver and a pipeline already set up we are able to easily assoicate the images in Nexus with our commits in Github. Using `support-rulesengine` as an example:
+
+![gitsemver_releases.png](images/gitsemver_releases.png)
+
+### Complete Release Automation
+
+Moving to Jenkins pipelines allows the DevOps team to get closer to automatic releases. For Go Modules we are already doing automatic releases because we are simply releasing git tags only. If you look at the Go Modules we have set them to auto release on every merge to master.
+
+![gitsemver_gomodules.png](images/gitsemver_gomodules.png)
+
+### git-semver FAQ:
+
+* Q: **What happens to the `VERSION` file?** 
+* A: After turning on git-semver in a repository the correct thing to do is to delete the `VERSION` file out of the main directory and add it .gitignore.
+
+* Q: **How does git-semver change how we branch?** 
+* A: Since git-semver allows us to track the semantic version outside of the main commit stream we do not have to branch to release a new version. We are able to release directly off the master branch. This allows us to branch only when we need to make changes to an already released version.
 
 ## New Geneva Pre-Built Jenkins Pipelines
 
