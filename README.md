@@ -1,5 +1,40 @@
 # Geneva Transformation
 
+## Table of Contents
+
+* [Geneva Transformation](#geneva-transformation)
+  * [Authors](#authors)
+  * [Background](#background)
+  * [Plugins](#plugins)
+  * [Job types](#job-types)
+    * [Verify Job](#verify-job)
+    * [Merge Job](#merge-job)
+    * [Stage Job](#stage-job)
+  * [What changes with Jenkins pipeline](#what-changes-with-jenkins-pipeline)
+  * [git-semver](#git-semver)
+    * [What is git-semver?](#what-is-git-semver)
+    * [How does it work?](#how-does-it-work)
+  * [How Pipeline and git-semver Simplify the Release Management Process](#how-pipeline-and-git-semver-simplify-the-release-management-process)
+    * [Nexus Image Tracking](#nexus-image-tracking)
+    * [Complete Release Automation](#complete-release-automation)
+    * [git-semver FAQ:](#git-semver-faq)
+  * [New Geneva Pre-Built Jenkins Pipelines](#new-geneva-pre-built-jenkins-pipelines)
+    * [edgeXBuildGoApp](#edgexbuildgoapp)
+    * [edgeXBuildDocker](#edgexbuilddocker)
+    * [edgeXGeneric](#edgexgeneric)
+  * [Migrating Existing Pipelines](#migrating-existing-pipelines)
+    *+* [Examples](#examples)
+  * [New CI Requirements](#new-ci-requirements)
+    * [All Repositories](#all-repositories)
+    * [Microservice Type Repositories](#microservice-type-repositories)
+    * [Leverage Docker as the build runtime, rather than underlying host.](#leverage-docker-as-the-build-runtime-rather-than-underlying-host)
+      * [Benefits](#benefits)
+    * [Implementation](#implementation)
+    * [Building the base image](#building-the-base-image)
+    * [Building the final image](#building-the-final-image)
+    * [Build base image Dockerfile.build](#build-base-image-dockerfilebuild)
+    * [Build final docker image](#build-final-docker-image)
+
 ## Authors
 
 * Ernesto Ojeda
