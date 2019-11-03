@@ -12,7 +12,7 @@
 * What is a Jenkinsfile?
 * Difference/benefits between JJB freestyle and Jenkins Pipeline.
   * **JJB Freestyle**: Yaml based, managed separate from source code that it builds. Hard to trace through all the templates and scripts. Relies on old paradigms to manage Jenkins jobs.
-  * **Jenkins Pipeline**: Suite of plugins that enables 'Pipeline-As-Code'. It allows users to define a build descriptor (Jenkinsfile) right next to the code to more easily manage code builds. More industry adoption/support. Officially supported by Cloudbees (makers of Jenkins).
+  * **Jenkins Pipeline**: Suite of plugins that enables **[Pipeline-As-Code](https://jenkins.io/doc/book/pipeline-as-code/)**. It allows users to define a build descriptor (Jenkinsfile) right next to the code to more easily manage code builds. More industry adoption/support. Officially supported by Cloudbees (makers of Jenkins).
 
 ## Plugins
   * Before: [GitHub Pull Request Builder](https://github.com/jenkinsci/ghprb-plugin) aka. GHPRB. This plugin is currently responsible for building all the pull requests. Plugin is no longer being actively developed and is up for adoption. Comments direct users to use the GitHub Branch Source plugin. Automatic builds on code push and allows triggering via GitHub comments (i.e. recheck).
@@ -95,19 +95,19 @@ Geneva introduces a set of pre-built Jenkins pipelines for use by the EdgeX comm
 
 ### edgeXBuildGoApp
 
-New pipeline that will be used for Go microservices.
+New pipeline that will be used for Go microservices. Leverages Docker to test/build Go code. Includes a Clair docker image scan as well as Snyk security scanning of Go dependencies. Uses git-semver to manage versions by default.
 
 ![edgeXBuildGoApp.png](images/edgeXBuildGoApp.png)
 
 ### edgeXBuildDocker
 
-A generic pipeline that builds and scans docker images.
+A generic pipeline that builds and scans docker images. Can be used to build any sort of docker image. Optionally, git-semver can be used as well to manage versions.
 
 ![edgeXBuildDocker.png](images/edgeXBuildDocker.png)
 
 ### edgeXGeneric
 
-Easily convert existing JJB templates to pipelines. Will be used for more complicated jobs as a temporary stop gap until a more custom pipeline can be created.
+Easily convert existing JJB templates to pipelines. Will be used for more complicated jobs as a temporary stop-gap until a more custom pipeline can be created.
 
 ![edgeXGeneric.png](images/edgeXGeneric.png)
 
