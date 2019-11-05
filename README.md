@@ -108,7 +108,7 @@ pipeline {
   * **Example**: [edgex-go-master-stage-go](https://jenkins.edgexfoundry.org/job/edgex-go-master-stage-go/). 
 
 ## What changes with Jenkins pipeline
-* **Q: For Geneva, will we still need have verify, merge and stage jobs?**
+* **Q: For Geneva jobs will there still be need a need for verify, merge and stage jobs?**
 * A: No. All details related to build verification, pushing docker images will be moved into the Jenkinsfile. Also, stage jobs will no longer be needed as we will be pushing docker images to nexus staging on merges into master.
 * **Q: Will there still be a need for any JJB templates?**
 * A: Yes. Some JJB templates will remain for older releases, i.e. Edinburgh, Fuji. In addition, there will be one JJB template for the edgexfoundry GitHub organization as a whole which will discover branches to build.
@@ -116,7 +116,7 @@ pipeline {
 * A: Yes, Jenkins pipeline defines the concept of named stages which can help pinpoint where failures are happening more easily.
 * **Q: Will it be simpler to navigate jobs?**
 * A: Yes, there will be only one high level job and you will be able to easily navigate to the branch/PR  you are concerned about.
-* **Q: Can I still trigger the build with a 'recheck'?**
+* **Q: For Geneva jobs can I still trigger the build with a 'recheck'?**
 * A: No, just pushing your branch will trigger the build. If you require a new build and the code has not changed, you can push and empty commit.
 
 ### Jenkins UI Navigational Changes
