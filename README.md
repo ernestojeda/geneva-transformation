@@ -11,6 +11,9 @@
     * [Merge Job](#merge-job)
     * [Stage Job](#stage-job)
   * [What changes with Jenkins pipeline](#what-changes-with-jenkins-pipeline)
+  * [Jenkins UI Navigational Changes](#jenkins-ui-navigational-changes)
+    * [Jenkins main page (Mock Up)](#jenkins-main-page-mock-up)
+    * [EdgeX Foundry Organization (Mock Up)](#edgex-foundry-organization-mock-up)
   * [git-semver](#git-semver)
     * [What is git-semver?](#what-is-git-semver)
     * [How does it work?](#how-does-it-work)
@@ -116,6 +119,15 @@ pipeline {
 * **Q: Can I still trigger the build with a 'recheck'?**
 * A: No, just pushing your branch will trigger the build. If you require a new build and the code has not changed, you can push and empty commit.
 
+### Jenkins UI Navigational Changes
+
+#### Jenkins main page (Mock Up)
+
+![edgeXOrg](images/edgeXOrg.png)
+
+#### EdgeX Foundry Organization (Mock Up)
+
+![edgeXOrg](images/edgeXOrgRepos.png)
 
 ## git-semver
 
