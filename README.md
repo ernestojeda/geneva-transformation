@@ -45,6 +45,37 @@
 ## Background
 
 * What is a Jenkinsfile?
+  * A Jenkinsfile is a text file that contains the build definition (all the components required to build and deploy the source code of your project) of a Jenkins Pipeline and is checked into source control. A Jenkinsfile is written in Groovy. 
+
+  * Immediate benefits of a Jenkinsfile include:
+    * Code review/iteration on the Pipeline
+    * Audit trail for the Pipeline
+    * Single source of truth for the Pipeline, which can be viewed and edited by multiple members of the project.
+
+### Example: Jenkinsfile (Declarative Pipeline)
+```
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
+```
 * Difference/benefits between JJB freestyle and Jenkins Pipeline.
   * **JJB Freestyle**: Yaml based, managed separate from source code that it builds. Hard to trace through all the templates and scripts. Relies on old paradigms to manage Jenkins jobs.
   * **Jenkins Pipeline**: Suite of plugins that enables **[Pipeline-As-Code](https://jenkins.io/doc/book/pipeline-as-code/)**. It allows users to define a build descriptor (Jenkinsfile) right next to the code to more easily manage code builds. More industry adoption/support. Officially supported by Cloudbees (makers of Jenkins).
